@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: react-kube
+  namespace: default
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: react-kube
+  template:
+    metadata:
+      labels:
+        app: react-kube
+    spec:
+      containers:
+      - name: react-kube
+        image: tosyngy/react-example-image
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
